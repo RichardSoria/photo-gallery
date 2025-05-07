@@ -52,7 +52,7 @@ export class PhotoService {
         });
   
         // Web platform only: Load the photo as base64 data
-        photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
+        photo.webviewPath = `data:image/jpg;base64,${readFile.data}`;
       }
     }
   }
@@ -60,7 +60,7 @@ export class PhotoService {
   private async savePicture(photo: Photo) {
     const base64Data = await this.readAsBase64(photo);
 
-    const fileName = Date.now() + '.jpeg';
+    const fileName = Date.now() + '.jpg';
     const savedFile = await Filesystem.writeFile({
       path: fileName,
       data: base64Data,
@@ -72,12 +72,14 @@ export class PhotoService {
       return {
         filepath: savedFile.uri,
         webviewPath: Capacitor.convertFileSrc(savedFile.uri),
+        fileName: fileName
       };
     }
     else {
       return {
         filepath: fileName,
-        webviewPath: photo.webPath
+        webviewPath: photo.webPath,
+        fileName: fileName
       };
     }
   }
@@ -111,5 +113,6 @@ export class PhotoService {
 export interface UserPhoto {
   filepath: string;
   webviewPath?: string;
+  fileName?: string;
 }
 
