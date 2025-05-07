@@ -8,6 +8,7 @@ import { PhotoService } from '../services/photo.service';
   standalone: false,
 })
 export class Tab2Page {
+  showPhotos: boolean = false;
 
   constructor(public photoService: PhotoService) { }
   addPhotoToGallery() {
@@ -18,4 +19,9 @@ export class Tab2Page {
   async ngOnInit() {
     await this.photoService.loadSaved();
   }
+  
+  toggleView() {
+    this.showPhotos = !this.showPhotos;
+  }
+
 }

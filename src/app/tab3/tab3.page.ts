@@ -8,10 +8,15 @@ import { PhotoService } from '../services/photo.service';
   standalone: false,
 })
 export class Tab3Page {
+  showPhotos: boolean = false;
 
   constructor(public photoService: PhotoService) { }
 
   async ngOnInit() {
     await this.photoService.loadSaved();
+  }
+
+  toggleView() {
+    this.showPhotos = !this.showPhotos;
   }
 }
