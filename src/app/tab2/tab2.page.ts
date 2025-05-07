@@ -11,8 +11,8 @@ export class Tab2Page {
   showPhotos: boolean = false;
 
   constructor(public photoService: PhotoService) { }
-  addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+  addPhotoToGallery(quality: number) {
+    this.photoService.addNewToGallery(quality);
 
   }
 

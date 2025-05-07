@@ -17,12 +17,12 @@ export class PhotoService {
     this.platform = platform;
   }
 
-  public async addNewToGallery() {
+  public async addNewToGallery(quality: number) {
     // Take a photo
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
-      quality: 100,
+      quality: quality,
       saveToGallery: true,
     });
     const savedImageFile = await this.savePicture(capturedPhoto);
