@@ -47,7 +47,7 @@ Se eliminó la carga automática de fotos al iniciar la aplicación. En su lugar
 **Rama:** `Implementar-un-botón-adicional-que-tome-las-fotos-al-50%-de-calidad-`
 
 **¿Qué se hizo?**  
-Se añadió un botón extra llamado `"Tomar foto (50%)"`. Este utiliza la misma función existente para capturar fotos, pero se le pasa un parámetro `quality` con valor `50`, lo que permite reducir la calidad al capturar la imagen.
+Se añadió un botón extra similar a la cámara pero con una pequeña modificación. Este utiliza la misma función existente para capturar fotos, pero se le pasa un parámetro `quality` con valor `50`, lo que permite reducir la calidad al capturar la imagen.
 
 ---
 
